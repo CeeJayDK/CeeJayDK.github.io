@@ -1,4 +1,4 @@
-# I'm CeeJay.dk and this is my personal website CeeJay.dk
+I'm CeeJay.dk and this is my personal website CeeJay.dk
 
 You're probably looking for either:
 
