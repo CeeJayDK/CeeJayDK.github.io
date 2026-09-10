@@ -1,40 +1,363 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CeeJay.dk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e10;
+    --panel: #12181a;
+    --panel-2: #171f22;
+    --line: #263136;
+    --line-bright: #3a4a50;
+    --cyan: #5eead4;
+    --cyan-dim: #2d5a54;
+    --amber: #f5a623;
+    --text: #d7dee0;
+    --text-dim: #7c8a8e;
+    --text-faint: #4d5a5e;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Inter', sans-serif;
+  }
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=b918daa8a98403e2ea263f56a4d1030e821ea9d0">
-  </head>
-  <body>
-    <div class="container-lg px-3 my-5 markdown-body">  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-      <p>I’m CeeJay.dk and this is my personal website CeeJay.dk</p>
+  html { background: var(--bg); }
 
-<p>You’re probably looking for either:</p>
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    background-position: -1px -1px;
+    background-attachment: fixed;
+  }
 
-<p>SweetFX :
-<a href="https://github.com/CeeJayDK/SweetFX">https://github.com/CeeJayDK/SweetFX</a></p>
+  ::selection { background: var(--cyan-dim); color: #fff; }
 
-<p>or</p>
+  a { color: inherit; text-decoration: none; }
 
-<p>The SweetFX Settings Database :
-<a href="https://sfx.thelazy.net/games/">https://sfx.thelazy.net/games/</a></p>
+  .wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
 
-<p>or</p>
+  /* ---------- Header ---------- */
 
-<p>Reshade :
-<a href="https://reshade.me/">https://reshade.me/</a></p>
+  header.wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
 
-<p>Kind Regards
-Christian Jensen (aka CeeJay.dk)</p>
+  .logo {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 
-<p>If you need support for Reshade or SweetFX please use the Reshade forum or the Reshade Discord (you can find links on <a href="https://reshade.me/">https://reshade.me/</a> )</p>
+  .logo .dot {
+    width: 8px;
+    height: 8px;
+    background: var(--cyan);
+    box-shadow: 0 0 8px var(--cyan);
+  }
 
-<p>If you need to email me about something personal I have a gmail account with the same username ( CeeJay.dk )</p>
+  nav {
+    font-family: var(--mono);
+    font-size: 13px;
+    display: flex;
+    gap: 28px;
+  }
 
-	</div>
-    
-  </body>
+  nav a {
+    color: var(--text-dim);
+    transition: color 0.15s ease;
+  }
+
+  nav a:hover { color: var(--cyan); }
+
+  /* ---------- Hero ---------- */
+
+  .hero {
+    padding: 20px 0 32px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-tag {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--amber);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 18px;
+    height: 1px;
+    background: var(--amber);
+  }
+
+  h1 {
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.25;
+    max-width: 18ch;
+    color: #fff;
+  }
+
+  .hero p {
+    margin-top: 14px;
+    max-width: 58ch;
+    color: var(--text-dim);
+    font-size: 16px;
+  }
+
+  .hero-meta {
+    margin-top: 18px;
+    display: flex;
+    gap: 32px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-faint);
+  }
+
+  .hero-meta strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* ---------- Section label ---------- */
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin: 28px 0 14px;
+  }
+
+  .section-head h2 {
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--text);
+  }
+
+  .section-head span {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+
+  /* ---------- Project panels ---------- */
+
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .project {
+    background: var(--panel);
+    padding: 18px 24px;
+    display: grid;
+    grid-template-columns: 200px 1fr auto;
+    gap: 24px;
+    align-items: center;
+    position: relative;
+    transition: background 0.15s ease;
+  }
+
+  .project:hover { background: var(--panel-2); }
+
+  .project::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: transparent;
+    transition: background 0.15s ease;
+  }
+
+  .project:hover::before { background: var(--cyan); }
+
+  .project-name {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 17px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .project-desc {
+    color: var(--text-dim);
+    font-size: 14.5px;
+    max-width: 48ch;
+  }
+
+  .project-desc code {
+    font-family: var(--mono);
+    color: var(--text);
+    background: var(--bg);
+    padding: 1px 5px;
+    font-size: 13px;
+  }
+
+  .project-link {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-dim);
+    white-space: nowrap;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--line-bright);
+    padding: 8px 14px;
+    transition: all 0.15s ease;
+  }
+
+  .project:hover .project-link {
+    color: var(--cyan);
+    border-color: var(--cyan-dim);
+  }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    margin-top: 32px;
+    border-top: 1px solid var(--line);
+    padding: 20px 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-faint);
+  }
+
+  footer a {
+    color: var(--text-dim);
+    transition: color 0.15s ease;
+  }
+
+  footer a:hover { color: var(--cyan); }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  /* ---------- Responsive ---------- */
+
+  @media (max-width: 680px) {
+    header.wrap { flex-direction: column; align-items: flex-start; gap: 18px; }
+    h1 { font-size: 30px; }
+    .project { grid-template-columns: 1fr; }
+    .project-link { justify-self: start; }
+    footer { flex-direction: column; gap: 16px; align-items: flex-start; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="logo"><span class="dot"></span>CeeJay.dk</div>
+  <nav>
+    <a href="#projects">projects</a>
+    <a href="https://github.com/CeeJayDK" target="_blank" rel="noopener">github</a>
+  </nav>
+</header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="hero-tag">shader &amp; graphics tooling</div>
+    <h1>Shaders, and the tools to write them.</h1>
+    <p>
+      I'm CeeJay. I write post-processing shaders. I made SweetFX and
+      co-made ReShade with crosire. This is where my projects live.
+    </p>
+  </section>
+
+  <section id="projects">
+    <div class="section-head">
+      <h2>projects</h2>
+      <span>github.com/CeeJayDK</span>
+    </div>
+
+    <div class="projects">
+
+      <div class="project">
+        <div class="project-name">SweetFX</div>
+        <div class="project-desc">
+          Post-processing shader suite — SMAA, color grading, sharpening and more.
+          Works in practically any game or program.
+        </div>
+        <a class="project-link" href="https://github.com/CeeJayDK/SweetFX" target="_blank" rel="noopener">view repo →</a>
+      </div>
+
+      <div class="project">
+        <div class="project-name">ShaderBridge</div>
+        <div class="project-desc">
+          Moves shader effects between engines and formats without rewriting
+          everything from scratch.
+        </div>
+        <a class="project-link" href="https://github.com/CeeJayDK/ShaderBridge" target="_blank" rel="noopener">view repo →</a>
+      </div>
+
+      <div class="project">
+        <div class="project-name">ReshadeFX Tools</div>
+        <div class="project-desc">
+          Editor tooling for <code>ReShade FX</code> shader code — for writing
+          and debugging faster.
+        </div>
+        <a class="project-link" href="https://github.com/CeeJayDK/ReshadeFX-Tools" target="_blank" rel="noopener">view repo →</a>
+      </div>
+
+    </div>
+  </section>
+
+
+</div>
+
+<footer class="wrap">
+  <div>© 2026 CeeJay.dk</div>
+  <div class="footer-links">
+    <a href="https://github.com/CeeJayDK" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+</body>
 </html>
