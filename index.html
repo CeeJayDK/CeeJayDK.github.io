@@ -8,18 +8,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
+  /* The same colors as ceejay.dk/sopt/: text contrast at least 7:1 (body), 4.5:1 (faint) on the panels. */
   :root {
-    --bg: #0a0e10;
-    --panel: #12181a;
-    --panel-2: #171f22;
-    --line: #263136;
-    --line-bright: #3a4a50;
+    --bg: #0e1416;
+    --panel: #161e21;
+    --panel-2: #1c2629;
+    --line: #2b383d;
+    --line-bright: #42545a;
     --cyan: #5eead4;
     --cyan-dim: #2d5a54;
     --amber: #f5a623;
-    --text: #d7dee0;
-    --text-dim: #7c8a8e;
-    --text-faint: #4d5a5e;
+    --text: #e8eef0;
+    --text-dim: #b3c0c4;
+    --text-faint: #8a989d;
     --mono: 'JetBrains Mono', monospace;
     --sans: 'Inter', sans-serif;
   }
@@ -33,13 +34,7 @@
     color: var(--text);
     font-family: var(--sans);
     font-size: 16px;
-    line-height: 1.6;
-    background-image:
-      linear-gradient(var(--line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size: 64px 64px;
-    background-position: -1px -1px;
-    background-attachment: fixed;
+    line-height: 1.65;
   }
 
   ::selection { background: var(--cyan-dim); color: #fff; }
